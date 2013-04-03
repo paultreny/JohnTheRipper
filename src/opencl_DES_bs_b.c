@@ -5,11 +5,13 @@
  * Based on Solar Designer implementation of DES_bs_b.c in jtr-v1.7.9
  */
 
-
-#include "opencl_DES_bs.h"
 #include <assert.h>
 #include <string.h>
 #include <sys/time.h>
+
+#include "opencl_DES_bs.h"
+#include "memdbg.h"
+
 #define LOG_SIZE 1024*16
 
 opencl_DES_bs_transfer CC_CACHE_ALIGN opencl_DES_bs_data[MULTIPLIER];

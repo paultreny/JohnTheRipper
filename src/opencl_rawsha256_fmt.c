@@ -14,11 +14,13 @@
  */
 
 #include <string.h>
+
 #include "sha.h"
 #include "sha2.h"
 #include "common-opencl.h"
 #include "config.h"
 #include "opencl_rawsha256.h"
+#include "memdbg.h"
 
 #define RAW_FORMAT_LABEL		"raw-sha256-opencl"
 #define RAW_FORMAT_NAME			"Raw SHA-256"

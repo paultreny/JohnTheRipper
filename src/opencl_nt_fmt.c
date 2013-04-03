@@ -18,6 +18,7 @@
  */
 
 #include <string.h>
+
 #include "arch.h"
 #include "misc.h"
 #include "memory.h"
@@ -25,6 +26,7 @@
 #include "formats.h"
 #include "path.h"
 #include "common-opencl.h"
+#include "memdbg.h"
 
 #define FORMAT_LABEL		"nt-opencl"
 #define FORMAT_NAME		"NT MD4"

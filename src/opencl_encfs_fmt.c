@@ -7,10 +7,6 @@
  * modification, are permitted. */
 
 #include <string.h>
-#include "arch.h"
-#include "formats.h"
-#include "common.h"
-#include "misc.h"
 #include <openssl/opensslv.h>
 #include <openssl/crypto.h>
 #include <openssl/ssl.h>
@@ -18,10 +14,16 @@
 #include <openssl/evp.h>
 #include <openssl/hmac.h>
 #include <openssl/engine.h>
-#include "common-opencl.h"
 #ifdef _OPENMP
 #include <omp.h>
 #endif
+
+#include "arch.h"
+#include "formats.h"
+#include "common.h"
+#include "misc.h"
+#include "common-opencl.h"
+#include "memdbg.h"
 
 #define FORMAT_LABEL		"encfs-opencl"
 #define FORMAT_NAME		"EncFS PBKDF2 AES / Blowfish"

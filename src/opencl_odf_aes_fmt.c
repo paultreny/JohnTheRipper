@@ -6,6 +6,10 @@
  * modification, are permitted. */
 
 #include <string.h>
+#include <openssl/aes.h>
+#ifdef _OPENMP
+#include <omp.h>
+#endif
 
 #include "arch.h"
 #include "formats.h"
@@ -15,10 +19,7 @@
 #include "formats.h"
 #include "common-opencl.h"
 #include "sha2.h"
-#include <openssl/aes.h>
-#ifdef _OPENMP
-#include <omp.h>
-#endif
+#include "memdbg.h"
 
 #define FORMAT_LABEL		"odf-aes-opencl"
 #define FORMAT_NAME		"ODF SHA-256 AES"

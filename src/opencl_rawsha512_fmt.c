@@ -20,6 +20,7 @@
 #include "common.h"
 #include "formats.h"
 #include "sha2.h"
+#include "memdbg.h"
 
 #define FORMAT_LABEL			"raw-sha512-opencl"
 #define FORMAT_NAME			"Raw SHA-512"

@@ -23,6 +23,7 @@
 #define OMP_SCALE			16
 #include <omp.h>
 #endif
+#include "memdbg.h"
 
 #define FORMAT_LABEL			"sha512crypt"
 #define FORMAT_NAME			"sha512crypt"

@@ -35,9 +35,11 @@
 
  Compile: gcc -DTEST gladman_pwd2key.c gladman_hmac.c -lcrypto */
 
+#include <stdio.h>
 #include <string.h>
 //#include <memory.h>
 #include "gladman_hmac.h"
+#include "memdbg.h"
 
 #if defined(__cplusplus)
 extern "C"
@@ -106,8 +108,6 @@ void derive_key(const unsigned char pwd[],  /* the PASSWORD     */
 }
 
 #ifdef TEST
-
-#include <stdio.h>
 
 struct
 {   unsigned int    pwd_len;

@@ -80,6 +80,15 @@ ahead of time.
 #include "openssl/whrlpool.h"
 #endif
 
+#ifdef MMX_COEF
+#include "sse-intrinsics.h"
+#endif
+#ifdef DEEP_TIME_TEST
+#include "timer.h"
+#endif
+
+#include "memdbg.h"
+
 #define STRINGIZE2(s) #s
 #define STRINGIZE(s) STRINGIZE2(s)
 
@@ -177,7 +186,6 @@ static void __SSE_gen_BenchLowLevelFunctions();
 #define FORMAT_NAME         "Generic MD5"
 
 #ifdef MMX_COEF
-# include "sse-intrinsics.h"
 # define GETPOS(i, index)		( (index&(MMX_COEF-1))*4 + ((i)&(0xffffffff-3) )*MMX_COEF + ((i)&3) )
 # define SHAGETPOS(i, index)	( (index&(MMX_COEF-1))*4 + ((i)&(0xffffffff-3) )*MMX_COEF + (3-((i)&3)) ) //for endianity conversion
 # define MIN_KEYS_PER_CRYPT	1
@@ -3267,7 +3275,6 @@ static void __SSE_append_string_to_input(unsigned char *IPB, unsigned idx_mod, u
 }
 
 #ifdef DEEP_TIME_TEST
-#include "timer.h"
 
 static int __SSE_gen_BenchLowLevMD5(unsigned secs, unsigned which)
 {

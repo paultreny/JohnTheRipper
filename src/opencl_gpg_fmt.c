@@ -7,21 +7,23 @@
  * modification, are permitted. */
 
 #include <string.h>
-#include "arch.h"
-#include "formats.h"
-#include "common.h"
-#include "misc.h"
-#include <openssl/des.h>
-#include "common-opencl.h"
 #include <openssl/blowfish.h>
 #include <openssl/aes.h>
 #include <openssl/ripemd.h>
 #include <openssl/cast.h>
 #include <openssl/bn.h>
-#include "sha2.h"
+#include <openssl/des.h>
 #ifdef _OPENMP
 #include <omp.h>
 #endif
+
+#include "arch.h"
+#include "formats.h"
+#include "common.h"
+#include "misc.h"
+#include "common-opencl.h"
+#include "sha2.h"
+#include "memdbg.h"
 
 #define FORMAT_LABEL		"gpg-opencl"
 #define FORMAT_NAME		"OpenPGP / GnuPG Secret Key"

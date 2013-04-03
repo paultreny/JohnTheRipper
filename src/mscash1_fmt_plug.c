@@ -27,6 +27,11 @@
 #include "options.h"
 #include "loader.h"
 #include "johnswap.h"
+#ifdef _OPENMP
+#include <omp.h>
+#endif
+
+#include "memdbg.h"
 
 #define FORMAT_LABEL			"mscash"
 #define FORMAT_NAME			"M$ Cache Hash MD4"
@@ -89,10 +94,6 @@ static unsigned int new_key;
 
 #define SQRT_2 0x5a827999
 #define SQRT_3 0x6ed9eba1
-
-#ifdef _OPENMP
-#include <omp.h>
-#endif
 
 static void set_key_utf8(char *_key, int index);
 static void set_key_encoding(char *_key, int index);

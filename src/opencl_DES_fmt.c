@@ -11,6 +11,8 @@
 #include "common.h"
 #include "formats.h"
 #include "config.h"
+#include "opencl_DES_bs.h"
+#include "memdbg.h"
 
 #define FORMAT_LABEL			"des-opencl"
 #define FORMAT_NAME			"Traditional DES"
@@ -32,8 +34,6 @@ static struct fmt_tests tests[] = {
 	{NULL}
 };
 
-#include "opencl_DES_bs.h"
-
 #define ALGORITHM_NAME			DES_BS_OPENCL_ALGORITHM_NAME
 
 #define BINARY_SIZE			sizeof(WORD)
@@ -47,14 +47,14 @@ static void done()
 static void init(struct fmt_main *pFmt)
 {
 	unsigned int i;
-	
+
 	char *conf;
-	
+
 	for(i=0;i<MULTIPLIER;i++)
 		opencl_DES_bs_init(0, DES_bs_cpt,i);
-	
+
 	global_work_size = 0;
-	
+
 	if ((conf = cfg_get_param(SECTION_OPTIONS, SUBSECTION_OPENCL, GWS_CONFIG)))
 		global_work_size = atoi(conf);
 

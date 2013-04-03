@@ -42,6 +42,8 @@
 #endif
 #include "sse-intrinsics.h"
 
+#include "memdbg.h"
+
 #define FORMAT_LABEL		"wpapsk"
 #define FORMAT_NAME		"WPA-PSK PBKDF2-HMAC-SHA-1"
 #define ALGORITHM_NAME		SHA1_ALGORITHM_NAME

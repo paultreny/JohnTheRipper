@@ -50,6 +50,13 @@
 #include "options.h"
 #include "bench.h"
 #include "status.h"
+#if !OS_TIMER
+#include <time.h>
+#if !defined (__MINGW32__) && !defined (_MSC_VER)
+#include <sys/times.h>
+#endif
+#endif
+#include "memdbg.h"
 
 volatile int event_pending = 0;
 volatile int event_abort = 0, event_save = 0, event_status = 0;
@@ -60,11 +67,6 @@ static int timer_save_interval, timer_save_value;
 static clock_t timer_ticksafety_interval, timer_ticksafety_value;
 
 #if !OS_TIMER
-
-#include <time.h>
-#if !defined (__MINGW32__) && !defined (_MSC_VER)
-#include <sys/times.h>
-#endif
 
 static clock_t timer_emu_interval = 0;
 static unsigned int timer_emu_count = 0, timer_emu_max = 0;

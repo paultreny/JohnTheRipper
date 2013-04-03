@@ -64,6 +64,16 @@
 #include <string.h>
 #include <assert.h>
 #include <errno.h>
+/* The reason we want to bump OMP_SCALE in this case is to even out the
+   difference in processing time for different length keys. It doesn't
+   boost performance in other ways */
+#ifdef _OPENMP
+#include <omp.h>
+#include <pthread.h>
+#define OMP_SCALE		4
+static pthread_mutex_t *lockarray;
+#endif
+
 #include "crc32.h"
 #include "misc.h"
 #include "common.h"
@@ -74,14 +84,14 @@
 #include "johnswap.h"
 #include "unrar.h"
 #include "common-opencl.h"
+#include "config.h"
+#include "memdbg.h"
 
 /* Max. 256. Lower gives better desktop response. This must be an even multiple
  * of 2 (ie. 1, 2, 4, 8 ...). The actual number of loops per kernel call is
  * this figure x (password_length * 2 + 11).
  */
 #define HASH_LOOPS		8
-
-#include "config.h"
 
 #define FORMAT_LABEL		"rar-opencl"
 #define FORMAT_NAME		"RAR3 SHA-1 AES"
@@ -107,16 +117,6 @@
 
 #define MIN(a, b)		(((a) > (b)) ? (b) : (a))
 #define MAX(a, b)		(((a) > (b)) ? (a) : (b))
-
-/* The reason we want to bump OMP_SCALE in this case is to even out the
-   difference in processing time for different length keys. It doesn't
-   boost performance in other ways */
-#ifdef _OPENMP
-#include <omp.h>
-#include <pthread.h>
-#define OMP_SCALE		4
-static pthread_mutex_t *lockarray;
-#endif
 
 static int omp_t = 1;
 static unsigned char *saved_salt;

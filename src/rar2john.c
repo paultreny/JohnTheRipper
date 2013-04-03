@@ -57,6 +57,7 @@
 #include "crc32.h"
 #include "unicode.h"
 #include "stdint.h"
+#include "memdbg.h"
 
 #define CHUNK_SIZE 4096
 #define LARGE_ENOUGH 8192

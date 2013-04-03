@@ -11,6 +11,7 @@
 
 #include "common-opencl.h"
 #include "opencl_sha2_common.h"
+#include "memdbg.h"
 
 /* Allow the developer to select configurable step size for gws. */
 int common_get_next_gws_size(size_t num, int step, int startup, int default_value) {

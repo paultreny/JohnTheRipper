@@ -7,6 +7,7 @@
  * Code was at some point based on Aircrack-ng source
  */
 #include <string.h>
+
 #include "arch.h"
 #include "formats.h"
 #include "common.h"
@@ -21,6 +22,7 @@ static int VF = 1;	/* Will be set to 4 if we run vectorized */
 
 #define JOHN_OCL_WPAPSK
 #include "wpapsk.h"
+#include "memdbg.h"
 
 #define FORMAT_LABEL		"wpapsk-opencl"
 #define FORMAT_NAME		"WPA-PSK PBKDF2-HMAC-SHA-1"

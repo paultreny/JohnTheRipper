@@ -23,6 +23,13 @@
 #include "sha2.h"
 #include "johnswap.h"
 #include "stdint.h"
+#ifdef _OPENMP
+static int omp_t = 1;
+#include <omp.h>
+#define OMP_SCALE               1
+#endif
+
+#include "memdbg.h"
 
 #define FORMAT_LABEL		"pbkdf2-hmac-sha512"
 #define FORMAT_TAG		"$pbkdf2-hmac-sha512$"
@@ -44,11 +51,6 @@
 #define BENCHMARK_COMMENT	""
 #define BENCHMARK_LENGTH	-1
 #define KEYS_PER_CRYPT		1
-#ifdef _OPENMP
-static int omp_t = 1;
-#include <omp.h>
-#define OMP_SCALE               1
-#endif
 
 #define PAD_SIZE		128
 #define PLAINTEXT_LENGTH	125

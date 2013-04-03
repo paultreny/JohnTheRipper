@@ -36,6 +36,12 @@
 #include "sse-intrinsics.h"
 #define ALGORITHM_NAME			MD5_ALGORITHM_NAME
 
+#if defined(_OPENMP) && (defined (MD5_SSE_PARA) || !defined(MMX_COEF))
+#include <omp.h>
+#endif
+
+#include "memdbg.h"
+
 #define FORMAT_LABEL			"hdaa"
 #define FORMAT_NAME			"HTTP Digest access authentication MD5"
 
@@ -51,7 +57,6 @@
 #define SALT_ALIGN			4
 
 #if defined(_OPENMP) && (defined (MD5_SSE_PARA) || !defined(MMX_COEF))
-#include <omp.h>
 static unsigned int omp_t = 1;
 #ifdef MD5_SSE_PARA
 #define OMP_SCALE			256

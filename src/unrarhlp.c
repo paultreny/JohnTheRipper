@@ -19,6 +19,7 @@
 #include <stdlib.h>
 
 #include "unrarhlp.h"
+#include "memdbg.h"
 
 #ifdef RAR_HIGH_DEBUG
 #define rar_dbgmsg printf
@@ -44,6 +45,7 @@ void *rar_realloc2(void *ptr, size_t size)
 
     if(!size || size > RAR_MAX_ALLOCATION) {
 	//rar_dbgmsg("UNRAR: rar_realloc2(): Attempt to allocate %zu bytes. Please report to http://bugs.clamav.net\n", size);
+		// memory leak, if size is 0.  realloc should free the memory, if size==0, and return NULL.  We simply return null.
 	return NULL;
     }
 

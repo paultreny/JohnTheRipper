@@ -18,15 +18,16 @@
  * supporting documentation. */
 
 #include <string.h>
+#include <openssl/aes.h>
+#ifdef _OPENMP
+#include <omp.h>
+#endif
+#include "common-opencl.h"
 #include "arch.h"
 #include "formats.h"
 #include "common.h"
 #include "misc.h"
-#include <openssl/aes.h>
-#include "common-opencl.h"
-#ifdef _OPENMP
-#include <omp.h>
-#endif
+#include "memdbg.h"
 
 #define FORMAT_LABEL		"agilekeychain-opencl"
 #define FORMAT_NAME		"1Password Agile Keychain PBKDF2-HMAC-SHA-1 AES"

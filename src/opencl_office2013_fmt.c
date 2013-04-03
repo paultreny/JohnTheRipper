@@ -15,6 +15,7 @@
 #include <string.h>
 #include <assert.h>
 #include <errno.h>
+#include <openssl/aes.h>
 
 #include "arch.h"
 #include "misc.h"
@@ -27,7 +28,7 @@
 #include "common-opencl.h"
 #include "config.h"
 #include "sha2.h"
-#include <openssl/aes.h>
+#include "memdbg.h"
 
 #define PLAINTEXT_LENGTH	47
 #define UNICODE_LENGTH		96 /* In octets, including 0x80 */

@@ -6,6 +6,7 @@
 #include <math.h>
 #include <string.h>
 #include "memory.h"
+#include "memdbg.h"
 
 #define C2I(c) ((unsigned int)(unsigned char)(c))
 
@@ -174,6 +175,8 @@ int main(int argc, char * * argv)
 
 	MEM_FREE(ligne);
 	fclose(fichier);
+
+	MEMDBG_PROGRAM_EXIT_CHECKS(stderr);
 
 	return 0;
 }

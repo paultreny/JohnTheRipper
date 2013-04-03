@@ -14,6 +14,7 @@
 #include <stdlib.h>
 
 #include "arch.h"
+#include "memdbg_defines.h"
 
 /*
  * Standard alignments for mem_alloc_tiny().
@@ -61,12 +62,28 @@ extern unsigned int mem_saving_level;
  * Allocates size bytes and returns a pointer to the allocated memory.
  * If an error occurs, the function does not return.
  */
-extern void *mem_alloc(size_t size);
+extern void *mem_alloc_func(size_t size
+#if defined (MEMDBG_ON)
+	, char *file, int line
+#endif
+	);
 /*
  * this version same as mem_alloc, but initialized the memory
  * to NULL bytes, like CALLOC(3) function does
  */
-extern void *mem_calloc(size_t size);
+extern void *mem_calloc_func(size_t size
+#if defined (MEMDBG_ON)
+	, char *file, int line
+#endif
+	);
+
+#if defined (MEMDBG_ON)
+#define mem_alloc(a) mem_alloc_func(a,__FILE__,__LINE__)
+#define mem_calloc(a) mem_calloc_func(a,__FILE__,__LINE__)
+#else
+#define mem_alloc(a) mem_alloc_func(a)
+#define mem_calloc(a) mem_calloc_func(a)
+#endif
 /*
  * Frees memory allocated with mem_alloc() and sets the pointer to NULL.
  * Does nothing if the pointer is already NULL.

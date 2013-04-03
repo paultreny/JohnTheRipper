@@ -42,9 +42,9 @@
 
 #ifdef HAVE_MPI
 #include "john-mpi.h"
-
 static int distributeWords, distributeRules, myrulecount;
 #endif
+#include "memdbg.h"
 
 static FILE *word_file = NULL;
 static int progress = 0, hund_progress = 0;

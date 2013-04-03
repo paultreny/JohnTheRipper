@@ -21,6 +21,7 @@
 #include "params.h"
 #include "common.h"
 #include "formats.h"
+#include "memdbg.h"
 
 #define FORMAT_LABEL			"raw-sha512-cuda"
 #define FORMAT_NAME			"Raw SHA-512"

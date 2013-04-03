@@ -21,6 +21,7 @@
 #include "common.h"
 #include "formats.h"
 #include "sha2.h"
+#include "memdbg.h"
 
 #define FORMAT_LABEL			"xsha512-opencl"
 #define FORMAT_NAME			"Mac OS X 10.7+ salted SHA-512"

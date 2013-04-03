@@ -13,9 +13,11 @@
  */
 
 #include <string.h>
+
 #include "common-opencl.h"
 #include "config.h"
 #include "opencl_cryptsha256.h"
+#include "memdbg.h"
 
 #define FORMAT_LABEL			"sha256crypt-opencl"
 #define FORMAT_NAME			"sha256crypt"

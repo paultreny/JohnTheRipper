@@ -25,14 +25,17 @@
 #include "cracker.h"
 #include "options.h"
 
-extern struct fmt_main fmt_LM;
-extern struct fmt_main fmt_NETLM;
-extern struct fmt_main fmt_NETHALFLM;
-
 #ifdef HAVE_MPI
 #include "john-mpi.h"
 #endif
 #include <math.h>
+
+
+#include "memdbg.h"
+
+extern struct fmt_main fmt_LM;
+extern struct fmt_main fmt_NETLM;
+extern struct fmt_main fmt_NETHALFLM;
 
 static unsigned long long try, cand;
 

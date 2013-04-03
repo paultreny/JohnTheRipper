@@ -14,6 +14,9 @@
 #include "formats.h"
 #include "sha.h"
 #include "johnswap.h"
+#include "sse-intrinsics.h"
+
+#include "memdbg.h"
 
 #define FORMAT_LABEL			"hmac-sha1"
 #define FORMAT_NAME			"HMAC SHA-1"
@@ -23,7 +26,6 @@
 #else
 #define SHA1_N				MMX_COEF
 #endif
-#include "sse-intrinsics.h"
 
 #define ALGORITHM_NAME			SHA1_ALGORITHM_NAME
 

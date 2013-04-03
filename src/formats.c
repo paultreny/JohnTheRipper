@@ -17,13 +17,13 @@
 #else
 #include "loader.h"
 #endif
-
 /* this is just for advance_cursor() */
 #ifdef HAVE_OPENCL
 #include "common-opencl.h"
 #elif HAVE_CUDA
 #include "cuda_common.h"
 #endif
+#include "memdbg.h"
 
 struct fmt_main *fmt_list = NULL;
 static struct fmt_main **fmt_tail = &fmt_list;
@@ -162,6 +162,7 @@ static char *fmt_self_test_body(struct fmt_main *format,
 	if (format->private.initialized == 2)
 		return NULL;
 #endif
+	MemDbg_Validate_msg(MEMDBG_VALIDATE_DEEPEST, "\nAt start of self-test:");
 
 	if (format->params.plaintext_length < 1 ||
 	    format->params.plaintext_length > PLAINTEXT_BUFFER_SIZE - 3)
@@ -390,6 +391,8 @@ static char *fmt_self_test_body(struct fmt_main *format,
 
 	format->methods.clear_keys();
 	format->private.initialized = 2;
+
+	MemDbg_Validate_msg(MEMDBG_VALIDATE_DEEPEST, "At end of self-test:");
 
 	return NULL;
 }

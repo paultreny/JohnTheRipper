@@ -17,6 +17,8 @@
 #include <omp.h>
 #endif
 
+#include "memdbg.h"
+
 #define FORMAT_LABEL			"raw-sha512"
 #define FORMAT_NAME			"Raw SHA-512"
 #if ARCH_BITS >= 64

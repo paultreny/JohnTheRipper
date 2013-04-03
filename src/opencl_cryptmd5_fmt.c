@@ -7,14 +7,16 @@
 #include <string.h>
 #include <unistd.h>
 #include <assert.h>
+
 #include "arch.h"
 #include "formats.h"
 #include "common.h"
 #include "misc.h"
 #include "path.h"
 #include "config.h"
-
 #include "common-opencl.h"
+#include "memdbg.h"
+
 #define uint32_t unsigned int
 #define uint8_t unsigned char
 

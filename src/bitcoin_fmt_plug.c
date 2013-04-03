@@ -26,6 +26,7 @@
 #define OMP_SCALE               32
 static int omp_t = 1;
 #endif
+#include "memdbg.h"
 
 #define FORMAT_LABEL		"bitcoin"
 #define FORMAT_NAME		"bitcoin (iterative SHA-256 + AES-256)"

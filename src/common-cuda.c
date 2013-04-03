@@ -1,6 +1,7 @@
 #include <ctype.h>
 #include "cuda_common.h"
 #include "options.h"
+#include "memdbg.h"
 
 #ifndef HAVE_OPENCL
 /* If we have OpenCL as well, we use its exact same function */

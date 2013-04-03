@@ -7,16 +7,18 @@
  * modification, are permitted. */
 
 #include <string.h>
+#include <openssl/des.h>
+#ifdef _OPENMP
+#include <omp.h>
+#endif
+
 #include "arch.h"
 #include "formats.h"
 #include "common.h"
 #include "misc.h"
-#include <openssl/des.h>
 #include "common-opencl.h"
 #include "gladman_fileenc.h"
-#ifdef _OPENMP
-#include <omp.h>
-#endif
+#include "memdbg.h"
 
 #define FORMAT_LABEL		"zip-opencl"
 #define FORMAT_NAME		"ZIP-AES PBKDF2-HMAC-SHA-1"

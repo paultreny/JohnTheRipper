@@ -45,6 +45,8 @@
 #include "john-mpi.h"
 #endif
 
+#include "memdbg.h"
+
 struct status_main status;
 unsigned int status_restored_time = 0;
 static char* timeformat = NULL;

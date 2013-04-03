@@ -6,6 +6,13 @@
  * modification, are permitted. */
 
 #include <string.h>
+#include <openssl/sha.h>
+#include <openssl/blowfish.h>
+#include <openssl/aes.h>
+#ifdef _OPENMP
+#include <omp.h>
+#endif
+
 #include "arch.h"
 #include "formats.h"
 #include "common.h"
@@ -13,12 +20,7 @@
 #include "common.h"
 #include "formats.h"
 #include "common-opencl.h"
-#include <openssl/sha.h>
-#include <openssl/blowfish.h>
-#include <openssl/aes.h>
-#ifdef _OPENMP
-#include <omp.h>
-#endif
+#include "memdbg.h"
 
 #define FORMAT_LABEL		"odf-opencl"
 #define FORMAT_NAME		"ODF SHA-1 Blowfish"

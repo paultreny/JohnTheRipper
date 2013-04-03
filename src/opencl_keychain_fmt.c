@@ -7,15 +7,17 @@
  * modification, are permitted. */
 
 #include <string.h>
+#include <openssl/des.h>
+#ifdef _OPENMP
+#include <omp.h>
+#endif
+
 #include "arch.h"
 #include "formats.h"
 #include "common.h"
 #include "misc.h"
-#include <openssl/des.h>
 #include "common-opencl.h"
-#ifdef _OPENMP
-#include <omp.h>
-#endif
+#include "memdbg.h"
 
 #define FORMAT_LABEL		"keychain-opencl"
 #define FORMAT_NAME		"Mac OS X Keychain PBKDF2-HMAC-SHA-1 3DES"

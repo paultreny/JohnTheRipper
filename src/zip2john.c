@@ -68,6 +68,7 @@
 #include "misc.h"
 #include "formats.h"
 #include "stdint.h"
+#include "memdbg.h"
 
 #define LARGE_ENOUGH 8192
 

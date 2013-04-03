@@ -7,17 +7,19 @@
  * modification, are permitted. */
 
 #include <string.h>
-#include "arch.h"
-#include "formats.h"
-#include "common.h"
-#include "misc.h"
-#include "common-opencl.h"
 #include <openssl/aes.h>
 #include <openssl/evp.h>
 #include <openssl/hmac.h>
 #ifdef _OPENMP
 #include <omp.h>
 #endif
+
+#include "arch.h"
+#include "formats.h"
+#include "common.h"
+#include "misc.h"
+#include "common-opencl.h"
+#include "memdbg.h"
 
 #define FORMAT_LABEL		"dmg-opencl"
 #define FORMAT_NAME         "Apple DMG PBKDF2-HMAC-SHA-1 3DES / AES"

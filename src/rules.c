@@ -130,6 +130,8 @@ static struct {
 // get the uppercase/lowercase and other data for 'non-standard' encodings.
 #include "encoding_data.h"
 
+#include "memdbg.h"
+
 static char *conv_source = CONV_SOURCE;
 static char *conv_shift, *conv_invert, *conv_vowels, *conv_right, *conv_left;
 static char *conv_tolower, *conv_toupper;

@@ -9,17 +9,18 @@
 * Note: When cracking in single mode keep set MAX_KEYS_PER_CRYPT equal to 65536 or less or use the cpu version instead.
 */
 
-#include "formats.h"
-#include "common.h"
 #include <stdlib.h>
 #include <ctype.h>
 #include <string.h>
 #include <sys/time.h>
+
+#include "formats.h"
+#include "common.h"
 #include "unicode.h"
 #include "common_opencl_pbkdf2.h"
 #include "loader.h"
 #include "config.h"
-
+#include "memdbg.h"
 
 #define INIT_MD4_A                  0x67452301
 
@@ -197,7 +198,7 @@ static 	void set_key(char*,int);
 static int crypt_all(int *pcount, struct db_salt *salt);
 
 static void init(struct fmt_main *self)
-{	
+{
 	char *conf=NULL;
 	int i;
 	///Allocate memory
@@ -210,12 +211,12 @@ static void init(struct fmt_main *self)
 	memset(dcc_hash_host,0,4*sizeof(cl_uint)*MAX_KEYS_PER_CRYPT);
 
 	memset(dcc2_hash_host,0,4*sizeof(cl_uint)*MAX_KEYS_PER_CRYPT);
-	
+
 	local_work_size = global_work_size = 0;
-	
+
 	if ((conf = cfg_get_param(SECTION_OPTIONS, SUBSECTION_OPENCL, LWS_CONFIG)))
 		local_work_size = atoi(conf);
-	
+
 	if ((conf = getenv("LWS")))
 		local_work_size = atoi(conf);
 
@@ -224,7 +225,7 @@ static void init(struct fmt_main *self)
 
 	if ((conf = getenv("GWS")))
 		global_work_size = atoi(conf);
-		
+
 	for( i=0; i<get_devices_being_used();i++)
 	select_device(get_platform_id(ocl_device_list[i]),get_device_id(ocl_device_list[i]),ocl_device_list[i],self);
 

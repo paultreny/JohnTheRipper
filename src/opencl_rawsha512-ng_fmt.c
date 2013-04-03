@@ -19,11 +19,13 @@
  */
 
 #include <string.h>
+
 #include "sha.h"
 #include "sha2.h"
 #include "common-opencl.h"
 #include "config.h"
 #include "opencl_rawsha512-ng.h"
+#include "memdbg.h"
 
 #define RAW_FORMAT_LABEL		"raw-sha512-ng-opencl"
 #define RAW_FORMAT_NAME			"Raw SHA-512 (pwlen < " PLAINTEXT_TEXT ")"

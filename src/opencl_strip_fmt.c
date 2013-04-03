@@ -9,15 +9,17 @@
  * This software is Copyright (c) 2012, Dhiru Kholia <dhiru.kholia at gmail.com> */
 
 #include <string.h>
+#include <openssl/aes.h>
+#ifdef _OPENMP
+#include <omp.h>
+#endif
+
 #include "arch.h"
 #include "formats.h"
 #include "common.h"
 #include "misc.h"
-#include <openssl/aes.h>
 #include "common-opencl.h"
-#ifdef _OPENMP
-#include <omp.h>
-#endif
+#include "memdbg.h"
 
 #define FORMAT_LABEL		"strip-opencl"
 #define FORMAT_NAME		"STRIP Password Manager PBKDF2-SHA1"

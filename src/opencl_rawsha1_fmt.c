@@ -19,6 +19,7 @@
 #include "sha.h"
 #include "common-opencl.h"
 #include "options.h"
+#include "memdbg.h"
 
 #define FORMAT_LABEL			"raw-sha1-opencl"
 #define FORMAT_NAME			"Raw SHA-1"

@@ -9,6 +9,7 @@
 #include <string.h>
 #include <math.h>
 #include "memory.h"
+#include "memdbg.h"
 
 	static cl_platform_id pltfrmid[MAX_PLATFORMS];
 

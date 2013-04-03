@@ -11,6 +11,10 @@
 #include "BF_std.h"
 #include "common.h"
 #include "formats.h"
+#ifdef _OPENMP
+#include <omp.h>
+#endif
+#include "memdbg.h"
 
 #define FORMAT_LABEL			"bf"
 #define FORMAT_NAME			"OpenBSD Blowfish"
@@ -83,8 +87,6 @@ static int sign_extension_bug;
 static BF_salt saved_salt;
 
 #ifdef _OPENMP
-#include <omp.h>
-
 struct fmt_main fmt_BF;
 #endif
 

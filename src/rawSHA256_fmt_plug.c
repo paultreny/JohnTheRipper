@@ -16,6 +16,8 @@
 #include <omp.h>
 #endif
 
+#include "memdbg.h"
+
 #define FORMAT_LABEL			"raw-sha256"
 #define FORMAT_NAME			"Raw SHA-256"
 #define ALGORITHM_NAME			"32/" ARCH_BITS_STR " " SHA2_LIB

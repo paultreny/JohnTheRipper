@@ -11,7 +11,7 @@
 #include "common.h"
 #include "opencl_DES_bs.h"
 #include "unicode.h"
-
+#include "memdbg.h"
 
 #define DEPTH
 #define START
@@ -593,4 +593,3 @@ WORD *opencl_DES_raw_get_binary(char *ciphertext)
 
 	return opencl_DES_do_IP(block);
 }
-
